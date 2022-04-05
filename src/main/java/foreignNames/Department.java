@@ -1,9 +1,17 @@
 package foreignNames;
 
+/**
+ * Класс хранения информации по подразделению
+ */
 public class Department {
-    int id;
-    //@CsvBindByPosition(position = 4)
-    String name;
+    /**
+     * id подразделения
+     */
+    private final int id;
+    /**
+     * название подразделения
+     */
+    private final String name;
 
     public Department(int id, String name){
         this.id = id;
@@ -16,5 +24,13 @@ public class Department {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    /**
+     * геттер названия
+     * @return название подразделения
+     */
+    public String getName() {
+        return name;
     }
 }

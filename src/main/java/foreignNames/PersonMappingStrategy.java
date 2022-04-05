@@ -6,8 +6,14 @@ import com.opencsv.exceptions.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Устанавливает стратегию парсинга файла для opencsv
+ */
 public class PersonMappingStrategy extends ColumnPositionMappingStrategy {
 
+    /**
+     * провайдер подразделений
+     */
     DepartmentProvider departmentProvider;
 
     public PersonMappingStrategy(DepartmentProvider departmentProvider) {
@@ -15,18 +21,19 @@ public class PersonMappingStrategy extends ColumnPositionMappingStrategy {
         this.departmentProvider = departmentProvider;
     }
 
-
+    /**
+     * Основной метод создания стратегии
+     * @param line очередная строка таблицы
+     * @return готовый объект человека
+     */
     @Override
-    public Object populateNewBean(String[] line) throws CsvBeanIntrospectionException, CsvRequiredFieldEmptyException,
-            CsvDataTypeMismatchException, CsvConstraintViolationException, CsvValidationException {
-        Person person = new Person();
-        person.id = Integer.parseInt(line[0]);
-        person.name = line[1];
-        person.sex = line[2];
-        person.birthDate = LocalDate.parse(line[3], DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        person.department = departmentProvider.provide(line[4]);
-        person.salary = Integer.parseInt(line[5]);
-        return person;
+    public Object populateNewBean(String[] line) throws CsvBeanIntrospectionException {
+        return new Person(Integer.parseInt(line[0]),
+                line[1],
+                line[2],
+                departmentProvider.provide(line[4]),
+                Integer.parseInt(line[5]),
+                LocalDate.parse(line[3], DateTimeFormatter.ofPattern("dd.MM.yyyy")));
     }
 
 }
