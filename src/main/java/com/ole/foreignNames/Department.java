@@ -1,4 +1,4 @@
-package foreignNames;
+package com.ole.foreignNames;
 
 /**
  * Класс хранения информации по подразделению

@@ -1,4 +1,4 @@
-package foreignNames;
+package com.ole.foreignNames;
 
 import java.util.Dictionary;
 import java.util.Hashtable;

@@ -1,4 +1,4 @@
-package foreignNames;
+package com.ole.foreignNames;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;

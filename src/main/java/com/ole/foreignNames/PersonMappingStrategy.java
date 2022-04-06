@@ -1,4 +1,4 @@
-package foreignNames;
+package com.ole.foreignNames;
 
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.exceptions.*;

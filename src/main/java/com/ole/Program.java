@@ -1,6 +1,8 @@
-import foreignNames.DepartmentProvider;
-import foreignNames.Person;
-import foreignNames.PersonParser;
+package com.ole;
+
+import com.ole.foreignNames.DepartmentProvider;
+import com.ole.foreignNames.Person;
+import com.ole.foreignNames.PersonParser;
 import java.util.List;
 
 public class Program {
